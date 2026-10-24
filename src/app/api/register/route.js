@@ -1,5 +1,5 @@
 import mongoose from "mongoose"; // grabbing the mongoose library so we can talk to MongoDB
-import {User} from "@/app/models/User"; // grabbing our User model/rules we defined earlier
+import {User} from "@/app/models/user"; // grabbing our User model/rules we defined earlier
 
 //THIS PAGE IS NECESSARY FOR OBTAINING EMAIL AND PASS INFO
 export async function POST(req) {

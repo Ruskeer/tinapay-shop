@@ -8,7 +8,7 @@ export default function Hero() {
             <div className="md:py-12 py-8">
                 <h1 className="font-semibold text-4xl">Baked fresh. <br/>Loved instantly.</h1>
                 <p className="text-sm my-6 text-colorprimary">
-                    There's nothing like the smell of fresh bread to make a house feel like home.
+                    There&apos;s nothing like the smell of fresh bread to make a house feel like home.
                 </p>
 
             <div className="text-sm flex gap-4 items-center text-colorprimary">

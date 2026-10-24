@@ -31,7 +31,7 @@ export default function UsersPage() {
             <UserTabs isAdmin={true}/>
             <div className="mt-8">
                 {users?.length > 0 && users.map(user => (
-                    <div className="bg-bg rounded-lg mb-2 p-1 px-4
+                    <div key={user._id} className="bg-bg rounded-lg mb-2 p-1 px-4
                     flex items-center gap-4">
                         <div className="grid grid-cols-2 flex gap-4 grow md:grid-cols-3">
                             <div className="text-primary">

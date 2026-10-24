@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useProfile } from "../components/UseProfile";
 import UserTabs from "@/app/components/layout/UserTabs";
-import Right from "@/app/components/icons/Right";
+import Right from "@/app/components/icons/right";
 import { useEffect, useState } from "react";
 
 

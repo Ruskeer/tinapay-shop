@@ -4,7 +4,7 @@ import UserTabs from "../components/layout/UserTabs"
 import { useProfile } from "../components/UseProfile";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import Left from "../components/icons/Left";
+import Left from "../components/icons/left";
 import DeleteButton from "../components/DeleteButton";
 
 export default function CategoriesPage() {
@@ -145,7 +145,7 @@ export default function CategoriesPage() {
                 <h2 className="mt-8 text-sm text-primary">Existing categories:</h2>
                 {categories?.length > 0 && categories.map(c => (
                     <div 
-                        
+                        key={c._id}
                         className="mb-1 bg-primary rounded-xl p-2 flex gap-1">
                         
                         <div

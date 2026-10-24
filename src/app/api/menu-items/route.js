@@ -1,6 +1,6 @@
 import {MenuItem} from "@/app/models/MenuItems";
 import mongoose from "mongoose";
-import { isAdmin } from "@/app/api/auth/[...nextauth]/route";
+import { isAdmin } from "@/app/lib/authOptions";
 
 export async function POST(req) { // handles new menu item orders coming in
     mongoose.connect(process.env.MONGO_URL); // connect to the restaurant/database
