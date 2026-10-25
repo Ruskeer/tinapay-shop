@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth" // reads who is logged in on the se
 import CredentialsProvider from "next-auth/providers/credentials" // lets us do email+password login instead of only Google/Github style logins
 import mongoose from "mongoose";
 import {User} from '@/app/models/user'; // our user model, same one used in register
-import bcrypt from 'bcrypt'; 
+import bcrypt from 'bcryptjs';
 import GoogleProvider from "next-auth/providers/google"; //for google console cloud database
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import client from "@/app/lib/mongoConnect";
