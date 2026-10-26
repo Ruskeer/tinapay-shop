@@ -16,6 +16,9 @@ export const authOptions = { // this whole object is the config for how login sh
         signIn: '/login',
     },
     adapter: MongoDBAdapter(client),
+    session: {
+      strategy: 'jwt',
+    },
     providers: [
     GoogleProvider({
     clientId: process.env.GOOGLE_CLIENT_ID,
