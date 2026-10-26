@@ -1,5 +1,6 @@
 import mongoose from "mongoose"; // grabbing the mongoose library so we can talk to MongoDB
 import {User} from "@/app/models/user"; // grabbing our User model/rules we defined earlier
+import bcrypt from "bcryptjs"; // brings in the tool that scrambles (hashes) passwords; it was missing, so hashing had nothing to use
 
 //THIS PAGE IS NECESSARY FOR OBTAINING EMAIL AND PASS INFO
 export async function POST(req) {
@@ -11,19 +12,19 @@ export async function POST(req) {
     const body = await req.json()
      // req = the incoming request. .json() reads whatever data was sent (email/password) and turns it into a normal JS object
      // await = wait for this reading to finish before moving to the next line
-    mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL);
     // opens a connection to actual MongoDB database, using the secret URL stored in .env.local
 
     const pass = body.password;
-    if(!pass?.length || pass.length < 5) {
-        new Error('password must be atleast 5 characters')
-    }
+    if(!pass?.length || pass.length < 5) { // if the password is empty or shorter than 5 characters
+    return Response.json({error: 'password must be at least 5 characters'}, {status: 400}); // stop here and send back an error; the old line made an error but never used it, so short passwords were still saved
+}
 
-    UserSchema.post('validate', function(user) {
-        const notHashedPassword = pass;
-        const salt = bcrypt.genSaltSync(10); //formula to hashed the incoming passwords
-        body.password = bcrypt.hashSync(notHashedPassword, salt); //now mix that formula to the incoming password
-    });
+    
+    const notHashedPassword = pass;
+    const salt = bcrypt.genSaltSync(10); //formula to hashed the incoming passwords
+    body.password = bcrypt.hashSync(notHashedPassword, salt); //now mix that formula to the incoming password     
+
     const createdUser = await User.create(body);
     // takes the body (email + password) and saves it as a new document in "users" collection
     // User.create() checks it against your Schema rules first (required fields, unique email, etc.)
