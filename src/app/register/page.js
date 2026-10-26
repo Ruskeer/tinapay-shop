@@ -24,6 +24,9 @@ export default function RegisterPage() {
         // pauses here until the server responds, could take a second or two
         if(response.ok) {
             setuserCreated(true); // server said it worked, show the success message
+            setEmail('');
+            setPassword('');
+
         }
         else {
             setError(true); // server said no, show the error message instead
