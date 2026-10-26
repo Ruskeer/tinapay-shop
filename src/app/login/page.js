@@ -35,10 +35,11 @@ export default function LoginPage() {
 
                 <div className="text-center text-primary my-4">or Login with provider</div>
                 <button 
+                type="button"
                 onClick={() => signIn('google', {callbackUrl:'/'})} 
                 className="flex gap-4 justify-center">
                     
-                <Image width="24"  height="24" src="/googleicon.png"/>
+                <Image width="24" alt ="" height="24" src="/googleicon.png"/>
                     Login with Google</button>
             
             
