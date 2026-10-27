@@ -1,7 +1,7 @@
 import mongoose from "mongoose"; // grabbing the mongoose library so we can talk to MongoDB
 import {User} from "@/app/models/user"; // grabbing our User model/rules we defined earlier
 import bcrypt from "bcryptjs"; // brings in the tool that scrambles (hashes) passwords; it was missing, so hashing had nothing to use
-
+import { signIn } from "next-auth/react";
 //THIS PAGE IS NECESSARY FOR OBTAINING EMAIL AND PASS INFO
 export async function POST(req) {
     // this function runs whenever a POST request hits /api/register

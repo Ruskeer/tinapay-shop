@@ -1,7 +1,6 @@
 "use client"; //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
 import { useState } from "react"; //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
 import Image from "next/image";
-import Link from "next/link";
 import {signIn} from "next-auth/react";
 
 
@@ -10,6 +9,21 @@ export default function LoginPage() {
     const [password,setPassword] = useState(''); //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
     const [loginInProgress, setloginInProgress] = useState(false);
     const [error, setError] = useState('');
+
+    async function handleFormSubmit(ev) {
+        ev.preventDefault();
+        setloginInProgress(true);
+        setError('');
+        const res = await signIn('credentials', {email, password, redirect: false});
+
+        if (res?.error) {
+            setError(res.error);
+            setloginInProgress(false);
+        } else {
+            window.location.href = '/';
+        }
+
+    }
 
 
     return (

@@ -2,6 +2,7 @@
 import { useState } from "react"; //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
 import Image from "next/image";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function RegisterPage() {
     const [email,setEmail] = useState(''); //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
