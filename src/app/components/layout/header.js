@@ -20,7 +20,7 @@ function AuthLinks({status, userName, userImage}) {
         
         </Link>
         <button 
-        onClick={() => signOut()} // logs the user out when clicked
+        onClick={() => signOut({callbackUrl: '/login'})} // logs the user out when clicked
         className="rounded-b-full bg-primary text-white px-1 py-5">Logout</button> 
       </>
     );
