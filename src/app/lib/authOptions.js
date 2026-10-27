@@ -37,9 +37,20 @@ export const authOptions = { // this whole object is the config for how login sh
 
       await mongoose.connect(process.env.MONGO_URL); // connect to the db so we can actually look someone up
       const user = await User.findOne({email}) // search the users collection for a matching email
+      
+      if (!user) {
+        throw new Error('Account does not exist'); // no user with this email
+      }
+      
+      if (!user.password) {
+      throw new Error('This account uses Google login'); // Google accounts have no password
+      }
+
       const passwordOk = user && bcrypt.compareSync(password, user.password); // if user exists, compare typed password against the hashed one stored
       if(passwordOk) { // only if both user exists AND password matches
         return user;
+      } else {
+        throw new Error('Incorrect password'); // email exists, wrong password
       }
 
       return null

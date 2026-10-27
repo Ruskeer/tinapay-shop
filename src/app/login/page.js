@@ -9,13 +9,20 @@ export default function LoginPage() {
     const [email,setEmail] = useState(''); //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
     const [password,setPassword] = useState(''); //NECESSARY FOR OBTAINING EMAIL AND PASS INFO
     const [loginInProgress, setloginInProgress] = useState(false);
+    const [error, setError] = useState('');
+
     async function handleFormSubmit(ev) {
         ev.preventDefault();
         setloginInProgress(true);
-        
-        await signIn('credentials', {email, password, callbackUrl: '/'});
-    
-        setloginInProgress(false);
+        setError(''); // clear the old message before trying again
+        const res = await signIn('credentials', {email, password, redirect: false});
+
+        if (res?.error) {
+            setError(res.error);
+            setloginInProgress(false);
+        } else {
+            window.location.href = '/';
+        }
     }
 
     return (
@@ -24,6 +31,9 @@ export default function LoginPage() {
         
 
             <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
+                {error && (
+                    <div className="text-center text-red-500 mb-4">{error}</div>
+                )}
                 <input type="email" placeholder="email" name="email" value={email} 
                 onChange={ev => setEmail(ev.target.value)} disabled={loginInProgress}></input>
 
