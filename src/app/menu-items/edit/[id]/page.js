@@ -95,15 +95,17 @@ const [redirectToItems, setRedirectToItems] = useState(false);
             <UserTabs isAdmin={true}/>
             
             <MenuItemForm menuItem={menuItems} onSubmit={handleFormSubmit}/>
-            <div className ="max-w-2xl mx-auto mt-2">
-                <div className="max-w-xs ml-auto pl-4">
-                    <DeleteButton 
-                    label="Delete this menu item"
-                    onDelete={handleDeleteClick}
-                    />
-        
-                </div> 
-                
+
+            <div className ="max-w-md mx-auto mt-2">
+                <div className="md:grid gap-4" style={{gridTemplateColumns: '.3fr .7fr'}}>
+                    <div></div>
+                    <div>
+                        <DeleteButton 
+                        label="Delete this menu item"
+                        onDelete={handleDeleteClick}
+                        />
+                    </div>
+                </div>              
             </div>
         </section>
     );
