@@ -21,8 +21,8 @@ export default function Home() {
           mainHeader={'About us'}
         />
         <div className="text-primary max-w-md mx-auto mt-4 flex flex-col gap-4">
-          <p>Lorem burat nindknsa nfs;l ndlsdnl gksdnlgn lsdngl snld gnslk gnlsdgn lksdlg ksdlg nsd</p>
-          <p className="max-w-2xl mx-auto mt-4">Lorem burat nindknsa nfs;l ndlsdnl gksdnlgn lsdngl snld gnslk gnlsdgn lksdlg ksdlg nsd</p>
+          <p>Tinapay started with one simple belief  nothing fixes a bad day like warm oten. </p>
+          <p className="max-w-2xl mx-auto mt-4">Our pandesal is the main dish and are baked fresh every morning, and our kitchen smells so good that the neighbors started screaming Oh hail Russel The Delicious Big boy.</p>
         </div>      
       </section>
 
@@ -32,7 +32,7 @@ export default function Home() {
           mainHeader={'Contact us'}/>
 
           <div className="mt-8">
-            <a className="text-4xl underline text-primary" href="tel:+46 583 984 2202">+46 583 984 2202</a>
+            <a className="text-4xl underline text-primary" href="tel:+46 583 984 2202">+63 967 207 8489</a>
           </div>
       </section>
        
