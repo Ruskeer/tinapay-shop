@@ -11,19 +11,6 @@ export default function LoginPage() {
     const [loginInProgress, setloginInProgress] = useState(false);
     const [error, setError] = useState('');
 
-    async function handleFormSubmit(ev) {
-        ev.preventDefault();
-        setloginInProgress(true);
-        setError(''); // clear the old message before trying again
-        const res = await signIn('credentials', {email, password, redirect: false});
-
-        if (res?.error) {
-            setError(res.error);
-            setloginInProgress(false);
-        } else {
-            window.location.href = '/';
-        }
-    }
 
     return (
         <section className="mt-8">
